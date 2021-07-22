@@ -3,6 +3,7 @@
 
 Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 {
+	conteo = 0;
 	estado = estado_normal;
 	Estado();
 
@@ -104,25 +105,6 @@ void Pacman::update()
 			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
-		switch (estado_actor)
-		{
-		case PACMAN_INDESTRUCTIBLE:
-			cout << "niki" << endl;
-			estado = estado_indestructible;
-			if (conteo < Limittime) {
-				conteo++;
-			}
-			if (conteo >= Limittime) {
-				conteo = 0;
-				gamePawnController->setStateActor(PACMAN_NORMAL);
-			}
-			break;
-		case PACMAN_NORMAL:
-			estado = estado_normal;
-			break;
-		}
-		//
-		Estado();
 
 		colisionador->x = posicionX;
 		colisionador->y = posicionY;
@@ -132,6 +114,26 @@ void Pacman::update()
 
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTileActual(tileSiguiente);
+	}
+
+	switch (estado_actor)
+	{
+	case PACMAN_INDESTRUCTIBLE:
+		estado = estado_indestructible;
+		break;
+	case PACMAN_NORMAL:
+		estado = estado_normal;
+		break;
+	}
+
+	Estado();
+
+	if (estado_actor == PACMAN_INDESTRUCTIBLE) {
+		conteo = conteo + 1;
+		if (conteo == 500) {
+			conteo = 0;
+			gamePawnController->setStateActor(PACMAN_NORMAL);
+		}
 	}
 }
 
