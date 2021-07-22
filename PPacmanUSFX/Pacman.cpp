@@ -121,7 +121,7 @@ void Pacman::update()
 			estado = estado_normal;
 			break;
 		}
-
+		//
 		Estado();
 
 		colisionador->x = posicionX;
