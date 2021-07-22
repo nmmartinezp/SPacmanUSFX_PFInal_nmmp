@@ -2,5 +2,5 @@
 
 State_pacman_indestructible::State_pacman_indestructible() {
 	indestructible = true;
-	velocidad = 5;
+	velocidad = 7;
 }
