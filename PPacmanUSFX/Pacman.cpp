@@ -3,6 +3,9 @@
 
 Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 {
+	estado = estado_normal;
+	Estado();
+
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
@@ -18,11 +21,11 @@ Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 		posicionX = 0;
 		posicionY = 0;
 	}
+	estado_actor = PACMAN_NORMAL;
 
 	colisionador->w = ancho;
 	colisionador->h = alto;
 
-	velocidad = 5;
 	movil = true;
 	enMovimiento = false;
 	direccionActual = MOVE_STILL;
@@ -48,6 +51,7 @@ void Pacman::setTileActual(Tile* _tileNuevo) {
 	}
 
 }
+
 
 void Pacman::update()
 {
@@ -100,7 +104,25 @@ void Pacman::update()
 			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
+		switch (estado_actor)
+		{
+		case PACMAN_INDESTRUCTIBLE:
+			cout << "niki" << endl;
+			estado = estado_indestructible;
+			if (conteo < Limittime) {
+				conteo++;
+			}
+			if (conteo >= Limittime) {
+				conteo = 0;
+				gamePawnController->setStateActor(PACMAN_NORMAL);
+			}
+			break;
+		case PACMAN_NORMAL:
+			estado = estado_normal;
+			break;
+		}
 
+		Estado();
 
 		colisionador->x = posicionX;
 		colisionador->y = posicionY;
@@ -137,6 +159,8 @@ void Pacman::render()
 
 void Pacman::deleteGameObject()
 {
-	GameObject::deleteGameObject();
-	tileActual->setPacman(nullptr);
+	if (indestructible == false) {
+		GameObject::deleteGameObject();
+		tileActual->setPacman(nullptr);
+	}
 }

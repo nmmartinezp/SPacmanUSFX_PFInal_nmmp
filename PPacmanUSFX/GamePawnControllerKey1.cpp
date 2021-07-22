@@ -24,6 +24,9 @@ void GamePawnControllerKey1::handleEvent(SDL_Event* event)
 			// Move right
 		case SDLK_RIGHT:
 			direccionSiguiente = MOVE_RIGHT; break;
+		case SDLK_x:
+			estado_actor = PACMAN_INDESTRUCTIBLE;
+			break;
 		}
 	}
 }

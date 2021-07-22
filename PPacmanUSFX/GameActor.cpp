@@ -10,7 +10,7 @@ GameActor::GameActor():GameObject()
 	alto = 0;
 
 	solido = true;
-	indestructible = true;
+	indestructible = false;
 	visible = true;
 	movil = false;
 	enMovimiento = false;
@@ -42,7 +42,7 @@ GameActor::GameActor(Texture* _textura):GameObject()
 	alto = 0;
 
 	solido = true;
-	indestructible = true;
+	indestructible = false;
 	visible = true;
 	movil = false;
 	enMovimiento = false;
@@ -68,6 +68,11 @@ GameActor::GameActor(Texture* _textura):GameObject()
 GameActor::~GameActor()
 {
 	free();
+}
+
+void GameActor::Estado() {
+	indestructible = estado->getIndestructible();
+	velocidad = estado->getVelocidad();
 }
 
 bool GameActor::revisarColision(const SDL_Rect* _otroColisionador)

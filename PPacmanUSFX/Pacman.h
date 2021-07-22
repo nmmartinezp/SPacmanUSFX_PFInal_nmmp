@@ -10,16 +10,21 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
+#include "States.h"
 #include "Moneda.h"
 #include "GamePawnControllerKey1.h"
+#include "State_pacman_normal.h"
+#include "State_pacman_indestructible.h"
 
 using namespace std;
 
 class Pacman : public GamePawn
 {
 protected:
-	
-	//static Pacman* instancia;
+
+	State_pacman_normal* estado_normal = new State_pacman_normal();
+	State_pacman_indestructible* estado_indestructible = new State_pacman_indestructible();
+ 	//static Pacman* instancia;
 
 	//int estado;
 
@@ -46,5 +51,6 @@ public:
 	void render() override;
 	//void update();
 	void deleteGameObject() override;
+	//estado de pacman
 
 };

@@ -1,12 +1,15 @@
 #pragma once
 #include "GameActor.h"
 #include "GamePawnController.h"
+#include "States.h"
+
 class GamePawn :
     public GameActor
 {
 private:
 protected:
     GamePawnController* gamePawnController;
+    int conteo, Limittime;
 public:
     // Constructores y destructores
     GamePawn();
@@ -20,6 +23,5 @@ public:
     virtual void update();
     virtual void handleEvent(SDL_Event* event);
     virtual void deleteGameObject();
-
 };
 

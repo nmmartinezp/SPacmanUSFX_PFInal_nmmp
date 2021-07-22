@@ -4,6 +4,8 @@
 #include "MoveDirection.h"
 #include "TileGraph.h"
 #include "AnimationFrames.h"
+#include "State.h"
+#include "States.h"
 
 class GameActor :
     public GameObject
@@ -28,6 +30,7 @@ protected:
 	int energia;
 	int vidas;
 
+	State* estado;
 	// Representacion grafica del objeto
 	Texture* textura;
 	AnimationFrames* framesAnimacion;
@@ -37,6 +40,8 @@ protected:
 
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
+
+	States estado_actor;
 
 	int numeroFrame;
 	int contadorFrames;
@@ -95,7 +100,10 @@ public:
 	void setDireccionSiguiente(MoveDirection _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; }
 	void setFramesDireccion(int _framesDireccion) { framesDireccion = _framesDireccion; }
 	void setColisionador(SDL_Rect* _colisionador) { colisionador = _colisionador; }
-	
+
+	void Estado();
+	void setstate(State* _estado) { estado = _estado; }
+
 	// Metodos varios
 	bool revisarColision(const SDL_Rect* _otroColisionador);
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);

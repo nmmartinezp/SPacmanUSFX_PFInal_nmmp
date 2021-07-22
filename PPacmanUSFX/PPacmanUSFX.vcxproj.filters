@@ -99,6 +99,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="State_pacman_normal.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="State_pacman_indestructible.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pacman.h">
@@ -189,6 +198,18 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GUI\Shape.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="State_pacman_normal.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="States.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="State_pacman_indestructible.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -42,6 +42,9 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="GUI\Shape.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="State_pacman_indestructible.cpp" />
+    <ClCompile Include="State_pacman_normal.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="AnimationFrames.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -74,6 +77,10 @@
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="GUI\Shape.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="States.h" />
+    <ClInclude Include="State_pacman_indestructible.h" />
+    <ClInclude Include="State_pacman_normal.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="AnimationFrames.h" />
     <ClInclude Include="TextureManager.h" />
