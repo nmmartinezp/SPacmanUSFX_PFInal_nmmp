@@ -10,6 +10,7 @@ class GamePawnController
 protected:
 	MoveDirection direccionSiguiente;
 	States estado_actor;
+	int limite_x;
 public:
 	
 	MoveDirection getDireccionSiguiente() { return direccionSiguiente; }

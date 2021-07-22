@@ -2,6 +2,7 @@
 
 GamePawnControllerKey1::GamePawnControllerKey1():GamePawnController()
 {
+	limite_x = 0;
 }
 
 void GamePawnControllerKey1::handleEvent(SDL_Event* event)
@@ -25,7 +26,10 @@ void GamePawnControllerKey1::handleEvent(SDL_Event* event)
 		case SDLK_RIGHT:
 			direccionSiguiente = MOVE_RIGHT; break;
 		case SDLK_x:
-			estado_actor = PACMAN_INDESTRUCTIBLE;
+			if (limite_x != 3) {
+				estado_actor = PACMAN_INDESTRUCTIBLE;
+			}
+			limite_x++;
 			break;
 		}
 	}

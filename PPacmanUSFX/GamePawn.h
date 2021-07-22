@@ -9,7 +9,7 @@ class GamePawn :
 private:
 protected:
     GamePawnController* gamePawnController;
-    int conteo, Limittime;
+    int conteo;
 public:
     // Constructores y destructores
     GamePawn();
